@@ -9,7 +9,9 @@
 <a id="markdown-扩展命令git-lables" name="扩展命令git-lables"></a>
 # 扩展命令：git lables
 
-通过此命令，可以快速检索到 log message 中的标签。（以 [] 【】 <> 等符号标注的即为标签）
+通过此命令，可以快速检索到 commit message 中被 `[]` `【】` `<>` 括住的关键字（即标签）。  
+我们在提交代码时，通常会在commit message中用以上标签标注此次提交所属的功能，方便以后筛选。  
+而此命令，将可以方便的列举出仓库中已有的标签。
 
 ## 示例
 列出仓库中所有的标签：
@@ -21,7 +23,7 @@ $ git lables
 $
 ```
 
-和其它git子命令一样，lables命令也可以使用author/grep/since等参数来限定范围，且可以使用Tab键补全：
+和其它git子命令一样，lables命令也可以使用 `author/grep/since` 等参数来限定范围，且可以使用Tab键补全：
 ```console
 $ git lables --author=honglei --grep=Mot
 [Motion]
@@ -80,7 +82,7 @@ E='!'; git config --global alias.lines "${E}f(){ git log --pretty=oneline --nums
 <a id="markdown-扩展命令git-plog" name="扩展命令git-plog"></a>
 # 扩展命令：git plog
 适合宽屏显示的log命令。  
-每行显示一条commit message，包括 "hash/日期/作者/分支指针/message" 等信息。
+每行显示一条commit message，包括 `hash/日期/作者/分支指针/message` 等信息。
 
 ## 示例
 与 git log 的用法完全一致：
