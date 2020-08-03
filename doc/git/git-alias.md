@@ -3,6 +3,7 @@
 - [git lables -- 列举标签](#扩展命令git-lables)
 - [git lines -- 统计提交行数](#扩展命令git-lines)
 - [git plog -- 适合宽屏显示的日志命令](#扩展命令git-plog)
+- [git conflicts -- 列举冲突的文件](#扩展命令git-conflicts)
 <!-- /TOC -->
 
 <a id="markdown-扩展命令git-lables" name="扩展命令git-lables"></a>
@@ -100,4 +101,32 @@ git config --global alias.plog "log --pretty=format:'%C(auto)%h %C(green)%ad %C(
 ```ini
 [alias]
     plog = log --pretty=format:'%C(auto)%h %C(green)%ad %C(blue)%<(15)%an %C(auto)%d %Creset%<(120,trunc)%s' --date=format:'%Y-%m-%d %H:%M:%S'
+```
+
+---
+
+<a id="markdown-扩展命令git-conflicts" name="扩展命令git-conflicts"></a>
+# 扩展命令：git conflicts
+用于在合并时列出冲突的文件。  
+在合并大量文件、出现较多冲突时，比直接用 git status 要看的更清爽些，  
+不至于文件列表过长，导致一屏显示不下。
+
+## 示例
+```console
+$ git conflicts
+main.c
+config.c
+$
+```
+
+## 配置方法
+拷贝以下命令，在终端中进行配置：
+```sh
+git config --global alias.conflicts "diff --name-only --diff-filter=U"
+```
+
+或编辑 ~/.gitconfig ，手动添加：
+```ini
+[alias]
+    conflicts = diff --name-only --diff-filter=U
 ```
